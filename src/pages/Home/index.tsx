@@ -1,3 +1,9 @@
+import { Profile } from "../../Components/Profile/Profile";
+import * as S from "./styles";
 export const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <S.HomeContainer>
+      <Profile />;
+    </S.HomeContainer>
+  );
 };
