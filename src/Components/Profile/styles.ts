@@ -6,13 +6,14 @@ export const Container = styled.div`
   top: 208px;
   width: 54rem;
   height: 13.25rem;
-  padding: 32px 40px;
+  padding: 2rem 2.5rem;
   border-radius: 8px;
   background-color: ${(props) => props.theme["base-profile"]};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 export const ProfileContainer = styled.div`
+  width: 100%;
   display: flex;
   gap: 2rem;
 
@@ -43,11 +44,19 @@ export const ProfileContainer = styled.div`
 
   p {
     // font-family: "Nunito";
+    width: 37.8125rem;
+    height: 5rem;
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     line-height: 160%;
     color: ${(props) => props.theme["base-text"]};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 `;
 
@@ -85,7 +94,6 @@ export const linkContainer = styled.div`
 `;
 
 export const Footer = styled.footer`
-  margin-top: 1rem;
   display: flex;
   gap: 1.5rem;
 
