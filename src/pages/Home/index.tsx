@@ -1,31 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../API/api";
 import { CardPost } from "../../Components/CardPost";
 import { Input } from "../../Components/Input";
 import { Profile } from "../../Components/Profile/Profile";
+import { PostsContext } from "../../context/PostsContext";
 import * as S from "./styles";
 
-interface PostInterface {
-  id: number;
-  url: string;
-  title: string;
-  body: string;
-  created_at: string;
-  comments: number;
-}
-
 export const Home = () => {
-  const [post, setPost] = useState<PostInterface[]>([]);
-
-  const getPosts = async () => {
-    const response = await api.get("/repos/juliomacedo0/github-blog/issues");
-    setPost(response.data);
-  };
-
-  useEffect(() => {
-    getPosts();
-  }, []);
-
+  const { post } = useContext(PostsContext);
   return (
     <S.HomeContainer>
       <S.Container>
