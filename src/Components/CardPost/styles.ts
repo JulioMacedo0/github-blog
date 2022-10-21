@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  > a {
+    text-decoration: none;
+  }
+`;
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,11 +15,15 @@ export const Card = styled.div`
   padding: 2rem;
   background-color: ${(props) => props.theme["base-post"]};
   border-radius: 10px;
+  border: 2px solid transparent;
 
+  :hover {
+    border: 2px solid ${(props) => props.theme["base-label"]};
+  }
   p {
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 160%;
     color: ${(props) => props.theme["base-text"]};
     overflow: hidden;
