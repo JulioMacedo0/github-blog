@@ -6,34 +6,11 @@ import {
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { useEffect, useState } from "react";
-import { api } from "../../API/api";
-
-interface ProfileInterface {
-  avatar_url: string;
-  company: string;
-  followers: number;
-  html_url: string;
-  login: string;
-  name: string;
-  bio: string;
-}
+import { useContext } from "react";
+import { ProfileDataContext } from "../../context/ProfileDataContext";
 
 export const Profile = () => {
-  const [profile, setProfile] = useState<ProfileInterface>(
-    {} as ProfileInterface
-  );
-
-  const getProfile = async () => {
-    const response = await api.get("/users/juliomacedo0");
-    console.log(response.data);
-    setProfile(response.data);
-  };
-
-  useEffect(() => {
-    getProfile();
-  }, []);
-
+  const { profile } = useContext(ProfileDataContext);
   return (
     <S.Container>
       <S.ProfileContainer>
