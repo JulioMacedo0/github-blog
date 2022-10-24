@@ -18,7 +18,12 @@ export const Home = () => {
           <S.Grid>
             {post.map((post) => {
               return (
-                <CardPost title={post.title} body={post.body} key={post.id} />
+                <CardPost
+                  title={post.title}
+                  body={post.body}
+                  key={post.id}
+                  postId={post.id}
+                />
               );
             })}
           </S.Grid>
