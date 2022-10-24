@@ -12,6 +12,8 @@ import { useContext } from "react";
 import { ProfileDataContext } from "../../context/ProfileDataContext";
 import { PostsContext } from "../../context/PostsContext";
 import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
+
 export const Posts = () => {
   const { profile } = useContext(ProfileDataContext);
   const { post } = useContext(PostsContext);
@@ -43,7 +45,11 @@ export const Posts = () => {
           </S.Footer>
         </S.Header>
 
-        <S.Content>{}</S.Content>
+        <S.Content>
+          <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
+            {post[0].body}
+          </ReactMarkdown>
+        </S.Content>
       </S.Container>
     </S.PostContainer>
   );
