@@ -16,7 +16,8 @@ import rehypeHighlight from "rehype-highlight";
 
 export const Posts = () => {
   const { profile } = useContext(ProfileDataContext);
-  const { post } = useContext(PostsContext);
+  const { currentPost } = useContext(PostsContext);
+
   return (
     <S.PostContainer>
       <S.Container>
@@ -30,7 +31,9 @@ export const Posts = () => {
             </a>
           </S.Nav>
 
-          <h2>JavaScript data tpes and data strutures</h2>
+          <h2>
+            {currentPost ? currentPost?.title : "Erro ao carregar o titulo"}
+          </h2>
 
           <S.Footer>
             <span>
@@ -47,7 +50,7 @@ export const Posts = () => {
 
         <S.Content>
           <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
-            {post[0].body}
+            {currentPost ? currentPost?.body : "Erro ao carregar o post"}
           </ReactMarkdown>
         </S.Content>
       </S.Container>
