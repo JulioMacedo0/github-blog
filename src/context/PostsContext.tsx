@@ -19,6 +19,9 @@ interface PostsContextType {
   post: PostInterface[];
   haddleChangeCurrentPostId: (id: number) => void;
   currentPost: PostInterface | undefined;
+  filteredPost: PostInterface[] | undefined;
+  onChangeSetInput: (input: string) => void;
+  inputValue: string;
 }
 
 export const PostsContext = createContext({} as PostsContextType);
@@ -26,9 +29,12 @@ export const PostsContext = createContext({} as PostsContextType);
 export const PostsContextProvider = ({ children }: PostsContextProps) => {
   const [post, setPost] = useState<PostInterface[]>([]);
   const [currentPostId, setCurrentPostId] = useState(0);
+  const [inputValue, setInput] = useState("");
 
   const currentPost = post.find((post) => post.id == currentPostId);
+  const filteredPost = post.filter((post) => post.title.includes(inputValue));
 
+  console.log(`post filtrado: ${filteredPost}`);
   const haddleChangeCurrentPostId = (id: number) => {
     setCurrentPostId(id);
   };
@@ -38,13 +44,24 @@ export const PostsContextProvider = ({ children }: PostsContextProps) => {
     setPost(response.data);
   };
 
+  const onChangeSetInput = (input: string) => {
+    setInput(input);
+  };
+
   useEffect(() => {
     getPosts();
   }, []);
 
   return (
     <PostsContext.Provider
-      value={{ post, haddleChangeCurrentPostId, currentPost }}
+      value={{
+        post,
+        haddleChangeCurrentPostId,
+        currentPost,
+        filteredPost,
+        onChangeSetInput,
+        inputValue,
+      }}
     >
       {children}
     </PostsContext.Provider>
