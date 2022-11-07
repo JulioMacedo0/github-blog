@@ -13,6 +13,7 @@ interface PostInterface {
   body: string;
   created_at: string;
   comments: number;
+  html_url: string;
 }
 interface PostsContextType {
   post: PostInterface[];
