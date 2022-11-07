@@ -16,6 +16,7 @@ export const CardPost = ({ title, body, postId, date }: CardPostProps) => {
 
   const distanceBetweenDates = formatDistance(Date.parse(date), new Date(), {
     locale: ptBR,
+    addSuffix: true,
   });
 
   return (
