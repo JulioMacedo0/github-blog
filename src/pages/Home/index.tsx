@@ -23,6 +23,7 @@ export const Home = () => {
                   body={post.body}
                   key={post.id}
                   postId={post.id}
+                  date={post.created_at}
                 />
               );
             })}
