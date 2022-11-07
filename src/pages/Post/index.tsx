@@ -15,7 +15,6 @@ import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import { formatDistance } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import "highlight.js/styles/github.css";
 export const Posts = () => {
   const { profile } = useContext(ProfileDataContext);
   const { currentPost } = useContext(PostsContext);
@@ -43,7 +42,6 @@ export const Posts = () => {
           <h2>
             {currentPost ? currentPost?.title : "Erro ao carregar o titulo"}
           </h2>
-
           <S.Footer>
             <span>
               <FontAwesomeIcon icon={faGithub} /> {profile.login}
