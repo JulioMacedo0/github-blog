@@ -8,13 +8,14 @@ import {
   faComment,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProfileDataContext } from "../../context/ProfileDataContext";
 import { PostsContext } from "../../context/PostsContext";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import { formatDistance } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import "highlight.js/styles/github.css";
 export const Posts = () => {
   const { profile } = useContext(ProfileDataContext);
   const { currentPost } = useContext(PostsContext);
