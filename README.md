@@ -14,7 +14,7 @@
 
 ## :hammer_and_wrench: **How to run project**
 
-<p align="center"https://github.com/JulioMacedo0/github-blog.git</p>
+<p align="center">git clone https://github.com/JulioMacedo0/github-blog.git</p>
 <p align="center">yarn or npm install</p>
 <p align="center">run yarn dev , yarn api</p>
 <p align="center">or if you use npm </p>
