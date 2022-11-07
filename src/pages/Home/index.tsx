@@ -7,7 +7,7 @@ import { PostsContext } from "../../context/PostsContext";
 import * as S from "./styles";
 
 export const Home = () => {
-  const { post } = useContext(PostsContext);
+  const { post, filteredPost } = useContext(PostsContext);
   return (
     <S.HomeContainer>
       <S.Container>
@@ -16,7 +16,7 @@ export const Home = () => {
           <Input />
 
           <S.Grid>
-            {post.map((post) => {
+            {filteredPost?.map((post) => {
               return (
                 <CardPost
                   title={post.title}
