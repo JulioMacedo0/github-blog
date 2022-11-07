@@ -22,8 +22,10 @@ export const Posts = () => {
   const distanceBetweenDates = formatDistance(
     Date.parse(currentPost!.created_at),
     new Date(),
-    { locale: ptBR }
+    { locale: ptBR, addSuffix: true }
   );
+
+  const howManyComments = currentPost!.comments;
   return (
     <S.PostContainer>
       <S.Container>
@@ -32,7 +34,7 @@ export const Posts = () => {
             <Link to="/">
               <FontAwesomeIcon icon={faArrowLeft} /> voltar
             </Link>
-            <a href="">
+            <a href={currentPost?.html_url} target="_blank">
               ver no github <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </a>
           </S.Nav>
@@ -49,7 +51,10 @@ export const Posts = () => {
               <FontAwesomeIcon icon={faCalendarDay} /> {distanceBetweenDates}
             </span>
             <span>
-              <FontAwesomeIcon icon={faComment} /> 5 comentários
+              <FontAwesomeIcon icon={faComment} />{" "}
+              {howManyComments >= 1 ? howManyComments : ""}
+              {howManyComments == 0 ? " Nenhum " : ""}
+              {howManyComments <= 1 ? " comentário" : " comentários"}
             </span>
           </S.Footer>
         </S.Header>
