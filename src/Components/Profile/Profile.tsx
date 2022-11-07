@@ -19,7 +19,7 @@ export const Profile = () => {
           <header>
             <h2>{profile.name}</h2>
             <S.linkContainer>
-              <a href={profile.html_url}>
+              <a href={profile.html_url} target="_blank">
                 Github <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
               </a>
             </S.linkContainer>
