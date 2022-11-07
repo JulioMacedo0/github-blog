@@ -13,11 +13,17 @@ import { ProfileDataContext } from "../../context/ProfileDataContext";
 import { PostsContext } from "../../context/PostsContext";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
-
+import { formatDistance } from "date-fns";
+import { ptBR } from "date-fns/locale";
 export const Posts = () => {
   const { profile } = useContext(ProfileDataContext);
   const { currentPost } = useContext(PostsContext);
 
+  const distanceBetweenDates = formatDistance(
+    Date.parse(currentPost!.created_at),
+    new Date(),
+    { locale: ptBR }
+  );
   return (
     <S.PostContainer>
       <S.Container>
@@ -40,7 +46,7 @@ export const Posts = () => {
               <FontAwesomeIcon icon={faGithub} /> {profile.login}
             </span>
             <span>
-              <FontAwesomeIcon icon={faCalendarDay} /> Há 1 dia
+              <FontAwesomeIcon icon={faCalendarDay} /> {distanceBetweenDates}
             </span>
             <span>
               <FontAwesomeIcon icon={faComment} /> 5 comentários
