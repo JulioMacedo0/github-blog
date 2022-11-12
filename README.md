@@ -28,7 +28,7 @@
   </kbd>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <kbd>
-    <img  style="border-radius: 5px" src="https://i.imgur.com/jvdloRB.png" alt="Post">
+    <img  style="border-radius: 5px" src="https://i.imgur.com/OHJFnXE.png" alt="Post">
   </kbd>
   &nbsp;&nbsp;&nbsp;&nbsp;
  
